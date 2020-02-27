@@ -1,0 +1,40 @@
+<div class="container-fluid">
+<p id="notice"><%= notice %></p>
+
+<h1>Pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contributor</th>
+      <th>Title</th>
+      <th>Image</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.user.name %></td>
+        <td><%= blog.title %></td>
+        <td><%= blog.image %></td>
+         <td><%= blog.content %></td>
+        <td><%= link_to 'Show', blog %></td>
+        <% if logged_in? %>
+        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+         
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%= link_to 'New Picture', new_blog_path %>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+  
+</div>

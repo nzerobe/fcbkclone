@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html {
+position: relative;
+  font-size: 80%;
+  background-repeat: no-repeat;
+  min-height:100%;
+  overflow: visible;
+}
+
+
+body{
+    background-color: #c0c0c0;
+  position: relative; 
+}
+
+th{
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+td{
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+ 
+image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p.bottom{
+    font-size: 25px;
+    text-align: center;
+    padding:20px;
+}
+
+.login{
+    font-size: 30px;
+    text-align: center;
+    padding:20px;
+}
+ 
+li{
+    list-style:none;
+}
+ul{
+    padding:0;
+}
+.header{
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+}
+.menu{
+    background-color:#012F4B;
+    color:#fff;
+}
+.men  li {
+     padding : 5%  10% ;
+    text-align : center ;
+}
+.contents li{
+    background-color:#F3A7AB;
+    color:#fff;
+    padding:10% 10%;
+    box-sizing: border-box;
+    border: solid 1px #fff;
+}
+.topic li{
+    margin:1%;
+    border-bottom: dotted 1px #333333;
+}
+.container{
+    margin-top:20px;
+    padding-bottom: 100px;
+}
