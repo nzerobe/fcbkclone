@@ -1,6 +1,5 @@
 class BlogsController < ApplicationController
 before_action :set_blog, only: [:show, :edit, :update, :destroy]
-
  
   def index
     @blogs = Blog.all
@@ -18,8 +17,7 @@ before_action :set_blog, only: [:show, :edit, :update, :destroy]
     @blogs = Blog.find(params[:id])
   end
 
-  
-   def create
+  def create
     @blog = Blog.new(blog_params)
     @blog.image.retrieve_from_cache! params[:cache][:image] 
     # @blog.user_id = current_user.id
@@ -34,19 +32,10 @@ before_action :set_blog, only: [:show, :edit, :update, :destroy]
     end
   end
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
   def confirm
     @blog = current_user.blogs.build(blog_params)
      render :new if @blog.invalid?
-   end
+  end
   
   
   def update

@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Facebook</title>
-    <%= csrf_meta_tags %>
+
+<head>
+  <title>Facebook</title>
+  <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
             <span class="sr-only">Nze Facebook</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="navbar-brand" href="#">Nze facebook</a>
-        </div>
-      
-        <div id="gnavi" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/">HOME</a></li>
-            <li><a href="/blogs/new">New Post！！</a></li>
-            <li><a href="/blogs">List Of Posts</a></li>
-          </ul>
-        </div>
+        <a class="navbar-brand" href="#">Nze facebook</a>
       </div>
-    </nav>
 
-    <div class="login">     
+      <div id="gnavi" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/blogs/new">New Post！！</a></li>
+          <li><a href="/blogs">List Of Posts</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="login">
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-    </div>
+        <% end %>
+
+          <% if logged_in? %>
+            <%= link_to "Profile", user_path(current_user.id) %>
+              <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+                <% else %>
+                  <%= link_to "Sign up", new_user_path %>
+                    <%= link_to "Login", new_session_path %>
+                      <% end %>
+  </div>
   <div class="container-fluid">
-     <div class="row">
+    <div class="row">
     </div>
+  </div>
+
+  <%= yield %>
+
+
+    <div class="footer">
+      <p>This is me</p>
+
+      <p>2018</p>
+
     </div>
 
-    <%= yield %>
-    
-    
-<div class="footer"> <p>This is me</p>
+</body>
 
-<p>2018</p>
-
-</div> 
- 
-  </body>
 </html>
