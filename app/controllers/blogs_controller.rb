@@ -18,20 +18,30 @@ before_action :set_blog, only: [:show, :edit, :update, :destroy]
     @blogs = Blog.find(params[:id])
   end
 
-def create
-  @blog = Blog.new(blog_params)
-  @blog.user_id = current_user.id
+  
+   def create
+    @blog = Blog.new(blog_params)
+    @blog.image.retrieve_from_cache! params[:cache][:image] 
+    # @blog.user_id = current_user.id
     
-    respond_to do |format|
-      if @blog.save
-        format.html { redirect_to @blog, notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @blog }
-      else
-        format.html { render :new }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
-      end
+    if @blog.save
+      # Switch to the list screen and display a message saying "You have created new blog!"
+#       RobMailer.blog_mail(@blog).deliver
+      redirect_to blogs_path, Notice: "You have created new blog!"
+    else
+      # Redraw the input form.
+      render 'new'
     end
   end
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   def confirm
     @blog = current_user.blogs.build(blog_params)
@@ -67,7 +77,8 @@ def create
 
     
   def blog_params
-      params.require(:blog).permit(:title, :image, :image_cache, :content)
+      
+      params.require(:blog).permit(:title, :content, :image).merge(user: current_user)
   end
   
 end
