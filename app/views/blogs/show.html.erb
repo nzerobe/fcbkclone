@@ -1,14 +1,17 @@
 <div class="container-fluid">
-<p id="notice"><%= notice %></p>
+  <div class="row">
+    
+  
 
-<p>
+    
+    <p>
   <strong>Title:</strong>
   <%= @blog.title %>
 </p>
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @blog.image.url   %>
+  <%= image_tag @blog.image.url, style:'width:300px;height:300px;' %>
 </p>
 
 <p>
@@ -16,6 +19,14 @@
   <%= @blog.content %>
 </p>
 
+
+
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
+
+    
+    
+    
+    
+    </div> 
 </div>

@@ -15,12 +15,22 @@
  */
 
 html {
+  height: 100%;
+  font-size: 80%;
+}
+body{
+  height: 100%;
+}
+
+
+
+/* html {
 position: relative;
   font-size: 80%;
   background-repeat: no-repeat;
   min-height:100%;
   overflow: visible;
-}
+} */
 
 
 body{
@@ -28,7 +38,14 @@ body{
   position: relative; 
 }
 
-th{
+/* .container{
+  width: 980px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100%;
+} */
+
+/* th{
     font-size: 20px;
     text-align: center;
     padding: 10px;
@@ -44,7 +61,7 @@ image{
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 p.bottom{
     font-size: 25px;
@@ -88,7 +105,17 @@ ul{
     margin:1%;
     border-bottom: dotted 1px #333333;
 }
-.container{
+/* .container{
     margin-top:20px;
     padding-bottom: 100px;
+} */
+
+.footer{
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  background-color: #4D4D4D;
+  display: table;
+   text-align: center;
 }

@@ -1,35 +1,30 @@
 class BlogsController < ApplicationController
 before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
-  # GET /blogs
-  # GET /blogs.json
+ 
   def index
     @blogs = Blog.all
   end
 
-  # GET /blogs/1
-  # GET /blogs/1.json
   def show
+      @blogs = Blog.find(params[:id])
   end
 
-  # GET /blogs/new
   def new
     @blog = Blog.new
   end
 
-  # GET /blogs/1/edit
   def edit
+    @blogs = Blog.find(params[:id])
   end
 
-  # POST /blogs
-  # POST /blogs.json
-  def create
-    @blog = Blog.new(blog_params)
-    @blog.user_id = current_user.id
+def create
+  @blog = Blog.new(blog_params)
+  @blog.user_id = current_user.id
     
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to @blog, notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new }
@@ -37,9 +32,13 @@ before_action :set_blog, only: [:show, :edit, :update, :destroy]
       end
     end
   end
-
-  # PATCH/PUT /blogs/1
-  # PATCH/PUT /blogs/1.json
+  
+  def confirm
+    @blog = Blog.new(blog_params)
+     render :new if @blog.invalid?
+   end
+  
+  
   def update
     respond_to do |format|
       if @blog.update(blog_params)
@@ -52,8 +51,6 @@ before_action :set_blog, only: [:show, :edit, :update, :destroy]
     end
   end
 
-  # DELETE /blogs/1
-  # DELETE /blogs/1.json
   def destroy
     @blog.destroy
     respond_to do |format|
@@ -63,14 +60,15 @@ before_action :set_blog, only: [:show, :edit, :update, :destroy]
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog
+    
+  def set_blog
       @blog = Blog.find(params[:id])
-    end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def blog_params
+    
+  def blog_params
       params.require(:blog).permit(:title, :image, :image_cache, :content)
-    end
+  end
+  
 end
 
