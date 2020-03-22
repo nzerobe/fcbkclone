@@ -48,3 +48,4 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem "graphql", "~> 1.9"
 
 gem 'graphiql-rails', group: :development
+gem "slack-notify"
